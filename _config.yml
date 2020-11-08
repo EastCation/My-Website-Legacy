@@ -1,6 +1,6 @@
 theme: jekyll-theme-cayman
-comments
-   gitalk: true
+ comments
+  gitalk: true
   gitalk_clientID: 'Client ID'
   gitalk_Secret: 'Client Secret'
   gitalk_repo: 'eastcation.github.io'
