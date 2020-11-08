@@ -1,1 +1,9 @@
 theme: jekyll-theme-cayman
+comments
+   gitalk: true
+  gitalk_clientID: 'Client ID'
+  gitalk_Secret: 'Client Secret'
+  gitalk_repo: 'eastcation.github.io'
+  gitalk_owner: 'EastCation'
+  gitalk_admin: 'EastCation'
+  distractionFreeMode: true
