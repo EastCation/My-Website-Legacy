@@ -33,18 +33,14 @@
                    Text="打开 MCBBS" EventType="打开网页" EventData="https://www.mcbbs.net/" />
          local:MyButton Margin="0,8,0,10" Width="250" Height="35" ColorType="Highlight"
                    Text="打开 Wiki" EventType="打开网页" EventData="https://minecraft-zh.gamepedia.com/Minecraft_Wiki" ToolTip="点击打开 Minecraft Wiki！" />
-        <TextBlock TextWrapping="Wrap"
-                   Text="local:MyTextButton 是没有边框的文本按钮，你同样可以设置 EventType 与 EventData 让它具有特定功能。" />
-        <local:MyTextButton Margin="0,8,0,0" HorizontalAlignment="Center"
-                   Text="点击打开知乎" EventType="打开网页" EventData="https://www.zhihu.com/" />
-         MyButton Margin="0,8,0,0" Width="200" Height="35"
+         <local:MyButton Margin="0,8,0,0" Width="200" Height="35"
                    Text="定位游戏启动脚本" EventType="打开文件" EventData="explorer.exe|/select,LatestLaunch.bat" ToolTip="PCL2 会将上一次启动 MC 的脚本保存在 PCL 文件夹内，且名为 LatestLaunch.bat。&#xA;点击按钮会打开文件管理器，并且借助参数要求它选中这个文件。" />
          <local:MyButton Margin="0,8,0,8" Width="200" Height="35"
                    Text="打开 PCL 日志" EventType="打开文件" EventData="Log1.txt" ToolTip="PCL2 的日志文件就在 PCL 文件夹内，且名为 Log1.txt" />
     </StackPanel>
 </local:MyCard>
 
-<!--<local:MyCard Title="按钮教学 2：属性" Margin="0,0,0,15">
+<local:MyCard Title="按钮教学 2：属性" Margin="0,0,0,15">
     <StackPanel Margin="25,40,23,15">
         <TextBlock TextWrapping="Wrap"
                    Text="你可以修改 ColorType 属性来调整按钮配色，Highlight 代表当前主题色，Red 代表红色。ToolTip 属性还可以让你在鼠标悬浮在上面的时候显示提示文本。" />
