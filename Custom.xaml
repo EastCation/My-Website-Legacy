@@ -15,6 +15,7 @@
 <local:MyCard Title="其他信息" Margin="0,0,0,15" CanSwap="True" IsSwaped="True">
     <StackPanel Margin="25,40,23,15">
         <local:MyHint Text="注意：本页面还没完成，完工可能需要一点点时间......" />
+    </StackPanel>
 </local:MyCard>
 
 <!--<local:MyCard Title="基础教学 3：长宽属性、图片" Margin="0,0,0,15">
