@@ -1,0 +1,366 @@
+<HTML id=dlgError STYLE="font-family:宋体, MS Song; font-size:9pt; width:42em; height:13.7em;">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE id=dialogTitle>
+Internet Explorer
+</TITLE>
+<style type="text/css">
+p,td,input,button { font:9pt 宋体, MS Song; cursor:default}
+body { font:9pt 宋体, MS Song; color: windowtext;
+ background:menu;}
+</style>
+<SCRIPT LANGUAGE="JavaScript" defer>
+window.onerror = HandleError
+document.ondragstart = NoDragging
+function NoDragging()
+{
+window.event.returnValue = false;
+}
+var g_errList;
+var g_detailsPaneOpen;
+function HandleError(message, url, line)
+{
+var L_Dialog_ErrorMessage = "该对话框中发生错误。";
+var L_ErrorNumber_Text = "错误: ";
+var str = L_Dialog_ErrorMessage + "\n\n"
+ + L_ErrorNumber_Text + line + "\n"
+ + message;
+alert (str);
+window.close();
+return true;
+}
+function updateTabIndices()
+{
+if (g_detailsPaneOpen)
+{
+ var nextIndex = 3;
+ if (!btnPrevErr.disabled)
+ {
+  btnPrevErr.tabindex = nextIndex++;
+ }
+ if (!btnNextErr.disabled)
+ {
+  btnNextErr.tabindex = nextIndex++;
+ }
+ chkAlwaysShowErrs.tabindex = nextIndex;
+}
+else
+{
+ btnPrevErr.tabindex = -1;
+ btnNextErr.tabindex = -1;
+ chkAlwaysShowErrs.tabindex = 3;
+}
+}
+function loadBdy()
+{
+g_errList = window.dialogArguments;
+chkAlwaysShowErrs.checked = g_errList.getPerErrorDisplay();
+g_errList.setPerErrorDisplay(chkAlwaysShowErrs.checked);
+chkAlwaysShowErrs.disabled = g_errList.getAlwaysShowLockState();
+g_detailsPaneOpen = g_errList.getDetailsPaneOpen();
+assureControlState();
+btnOK.onclick = new Function("btnOKClick()");
+btnOK.onkeydown = new Function("SwitchFocus()");
+btnDetails.onclick = new Function("btnDetailsClick()");
+btnDetails.onkeydown = new Function("SwitchFocus()");
+btnNextErr.onclick = new Function("btnNextErrClick()");
+btnNextErr.onkeydown = new Function("SwitchFocus()");
+btnPrevErr.onclick = new Function("btnPrevErrClick()");
+btnPrevErr.onkeydown = new Function("SwitchFocus()");
+updateErrorInfo();
+if (!g_errList.canRetreatError())
+{
+ btnPrevErr.disabled = true;
+}
+if (!g_errList.canAdvanceError())
+{
+ btnNextErr.disabled = true;
+}
+btnOK.focus();
+} 
+function updateErrorInfo()
+{
+spnLine.innerText  = g_errList.getErrorLine();
+spnCharacter.innerText = g_errList.getErrorChar();
+spnCode.innerText  = g_errList.getErrorCode();
+divError.innerText  = g_errList.getErrorMsg();
+divURL.innerText  = g_errList.getErrorUrl();
+}
+function SwitchFocus()
+{
+var HTML_KEY_ARROWLEFT = 37;
+var HTML_KEY_ARROWUP = 38;
+var HTML_KEY_ARROWRIGHT = 39;
+var HTML_KEY_ARROWDOWN = 40;
+var iCode = event.keyCode;
+var strSourceID = event.srcElement.id;
+var fTabForward;
+if (iCode < HTML_KEY_ARROWLEFT || iCode > HTML_KEY_ARROWDOWN)
+{
+ return;
+}
+var fTabForward = iCode == HTML_KEY_ARROWRIGHT ||
+     iCode == HTML_KEY_ARROWDOWN;
+if (g_detailsPaneOpen)
+{
+ if (fTabForward)
+ {
+  if (strSourceID == "btnPrevErr")
+  {
+   if (!btnNextErr.disabled)
+   {
+    btnNextErr.focus();
+   }
+  }
+  else if (strSourceID == "btnOK")
+  {
+   btnDetails.focus();
+  }
+  else if (strSourceID == "chkAlwaysShowErrs")
+  {
+   btnOK.focus();
+  }
+ }
+ else
+ {
+  if (strSourceID == "btnNextErr")
+  {
+   if (!btnPrevErr.disabled)
+   {
+    btnPrevErr.focus();
+   }
+  }
+  else if (strSourceID == "btnDetails")
+  {
+   btnOK.focus();
+  }
+  else if (strSourceID == "btnOK")
+  {
+   chkAlwaysShowErrs.focus();
+  }
+ }
+}
+}
+function btnOKClick()
+{
+g_errList.setPerErrorDisplay(chkAlwaysShowErrs.checked);
+g_errList.setDetailsPaneOpen(g_detailsPaneOpen);
+window.close();
+}
+function assureControlState()
+{
+var L_DetailsExpand_Text = "显示详细信息(<u>D</u>) &gt&gt";
+var L_DetailsCollapse_Text = "隐藏详细信息(<u>D</u>) &lt&lt";
+if (g_detailsPaneOpen)
+{
+ btnDetails.innerHTML = L_DetailsCollapse_Text;
+ window.dialogHeight = 27.2;
+ divDetails.style.display = "";
+ divButtons2.style.display = "";
+ trHR.style.display = "";
+}
+else
+{
+ btnDetails.innerHTML = L_DetailsExpand_Text;
+ divDetails.style.display = "none";
+ divButtons2.style.display = "none";
+ trHR.style.display = "none";
+ window.dialogHeight = 13.7;
+}
+}
+function btnDetailsClick()
+{
+g_detailsPaneOpen = !g_detailsPaneOpen;
+assureControlState();
+if (g_detailsPaneOpen)
+{
+ if (!btnNextErr.disabled)
+ {
+  btnNextErr.focus();
+ }
+ else if (!btnPrevErr.disabled)
+ {
+  btnPrevErr.focus();
+ }
+ else
+ {
+  btnOK.focus();
+ }
+}
+else
+{
+ btnDetails.focus();
+}
+updateTabIndices();
+}
+function btnNextErrClick()
+{
+g_errList.advanceError();
+updateErrorInfo();
+if (btnPrevErr.disabled)
+{
+ btnPrevErr.disabled = false;
+}
+if (!g_errList.canAdvanceError())
+{
+ btnNextErr.disabled = true;
+ btnPrevErr.focus();
+}
+updateTabIndices();
+}
+function btnPrevErrClick()
+{
+g_errList.retreatError();
+updateErrorInfo();
+if (btnNextErr.disabled)
+{
+ btnNextErr.disabled = false;
+}
+if (!g_errList.canRetreatError())
+{
+ btnPrevErr.disabled = true;
+ btnNextErr.focus();
+}
+updateTabIndices();
+}
+function BodyOnKeyPress(nCode)
+{
+if (nCode == 27) 
+{
+ window.close();
+ return;
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY ID=bdy style="background: threedface" onLoad=loadBdy() onkeydown=BodyOnKeyPress(event.keyCode) onkeypress=BodyOnKeyPress(event.keyCode) topmargin=0 leftmargin=0 rightmargin=0 bottommargin=0>
+<table id=tblMain tabindex=-1 cellspacing=0 border=0 style="background:buttonface; border-collapse:collapse; width:29.4em;">
+<TR>
+<!-- Icon image -->
+<TD id=tdIcon valign=top style="padding-left:0.9625em; padding-top:0.9295em; padding-right:0.385em;">
+<img id=imgIcon src=warning.gif>
+</TD>
+<TD style="padding-top:0.5577em;">
+<!-- Inner table start -->
+<table tabindex=-1 cellspacing=0 border=0 style="background:buttonface; border-collapse:collapse">
+<!-- Error message dialog -->
+<TR>
+<TD id=tdMsg style="padding-left:0.48125em;">
+ 该 web 页上的问题可能使其无法正常显示或功能不正常。
+以后，双击显示在状态栏中的警告图标，就可以显示上述信息。
+</TD>
+</TR>
+<!-- Checkbox -->
+<TR>
+<TD style="padding-top:0.46475em;">
+ <input id=chkAlwaysShowErrs tabindex=5 accesskey=a type=checkbox>
+ <label for=chkAlwaysShowErrs id=labelChk>
+ 网页包含错误时始终显示该信息(<u>A</u>)
+ </label>
+</TD>
+</TR>
+<!-- OK button -->
+<TR>
+<TD align=right style="padding-top:1.20835em;">
+ <table id=tblMain tabindex=-1 cellspacing=0 border=0 style="background:buttonface; border-collapse:collapse;">
+ <tr>
+ <td style="padding-right:0.385em;">
+  <button id=btnOK tabindex=1
+  style="width:9.7em; height:2.2em;"
+  type=submit>
+  确定
+  </button>
+ </td>
+ <td>
+  <button id=btnDetails tabindex=2
+  style="width:9.7em; height:2.2em;"
+  accesskey=D>
+  显示详细信息(<u>D</u>) &gt&gt
+  </button>
+ </td>
+ </tr>
+ </table>
+</TD>
+</TR>
+</TABLE>
+<!-- Inner table end -->
+</TD>
+</TR>
+<!-- HR -->
+<TR id=trHR style="display:none;">
+<TD colspan=2 style="padding-left:1.155em; padding-top:0.09295em; padding-right:0.28875em;">
+<hr>
+</TD>
+</TR>
+</TABLE>
+<DIV id=divDetails tabindex=-1 style="border:inset; overflow:auto; position:absolute; background:threedface; font-family:宋体, MS Song; 
+         font-size:9pt; top:11.4em; width:37.9225em; height:8.1796em; margin-left:1.155em; display:none">
+<TABLE id=tbl2 tabindex=-1 cellspacing=0 border=0 style="border-collapse:collapse; background:buttonface; font-family:宋体, MS Song;
+              font-size:9pt;">
+<TBODY>
+<TR valign=top>
+<TD id=tdLine nowrap style="padding-top:0.3718em; padding-left:0.48125em;">
+行:
+</TD>
+<TD id=tdSpanLine style="padding-top:0.46475em;">
+<SPAN id=spnLine></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdChar nowrap style="padding-left:0.48125em;">
+字符:
+</TD>
+<TD id=tdSpanCharacter>
+<SPAN id=spnCharacter></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdError nowrap style="padding-left:0.48125em;">
+错误:
+</TD>
+<TD id=tdSpanError>
+<DIV id=divError tabindex=-1 style="background: threedface;
+font-family: 宋体, MS Song; font-size:9pt; width:32.1475em;"></DIV>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdCode nowrap style="padding-left:0.48125em;">
+代码:
+</TD>
+<TD id=tdSpanCode>
+<SPAN id=spnCode></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdURL nowrap style="padding-left:0.48125em; padding-bottom:0.09295em;">
+URL:
+</TD>
+<TD id=tdSpanURL>
+<DIV id=divURL tabindex=-1 style="background:threedface; font-family:宋体, MS Song; font-size:9pt; width:32.1475em;"></DIV>
+</TEXTAREA>
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+</DIV>
+<DIV id=divButtons2 tabindex=-1 align=right style="background:buttonface; position:absolute; font-family:宋体, MS Song; font-size:9pt; top:21em;
+  width:38.01875em; margin-left:1.155em; display:none">
+ <table id=tblMain tabindex=-1 cellspacing=0 border=0 style="background:buttonface; border-collapse:collapse;">
+ <tr>
+ <td style="padding-right:0.385em;">
+  <button id=btnPrevErr tabindex=3 type=reset accesskey=P
+  style="font-family: 宋体, MS Song; font-size:9pt; width:8em; height:2.2em;">
+   上一个(<u>P</u>)
+  </button>
+ </td>
+ <td>
+  <button id=btnNextErr tabindex=4 type=reset accesskey=n
+  style="font-family: 宋体, MS Song; font-size:9pt; width:8em; height:2.2em;">
+   下一个(<u>N</u>)
+  </button>
+ </td>
+ </tr>
+ </table>
+</DIV>
+</BODY>
+</HTML>

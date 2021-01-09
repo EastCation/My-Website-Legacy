@@ -1,0 +1,174 @@
+<HTML id=dlgError STYLE="font-family: 宋体, MS Song; font-size: 9pt;
+width: 36em; height: 37em">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE id=dialogTitle>
+Internet Explorer 脚本错误
+</TITLE>
+<SCRIPT LANGUAGE="JavaScript" defer>
+window.onerror = HandleError
+function HandleError(message, url, line)
+{
+var L_Dialog_ErrorMessage = "该对话框中发生错误。";
+var L_ErrorNumber_Text = "错误: ";
+var str = L_Dialog_ErrorMessage + "\n\n" 
+ + L_ErrorNumber_Text + line + "\n"
+ + message;
+alert (str);
+window.close();
+return true;
+}
+function loadBdy()
+{
+var L_ContinueScript_Message = "是否调试当前页?";
+var objOptions = window.dialogArguments; 
+btnNo.onclick = new Function("btnOKClick()");
+btnNo.onkeydown = new Function("SwitchFocus()");
+btnYes.onclick = new Function("btnYesClick()");
+btnYes.onkeydown = new Function("SwitchFocus()");
+document.onkeypress = new Function("docKeypress()");
+spnLine.innerText  = objOptions.errorLine;
+spnCharacter.innerText = objOptions.errorCharacter;
+spnError.innerText  = objOptions.errorMessage;
+spnCode.innerText  = objOptions.errorCode;
+txaURL.innerText  = objOptions.errorUrl;
+if (objOptions.errorDebug)
+{
+ divDebug.innerText = L_ContinueScript_Message;
+}
+btnYes.focus();
+} 
+function SwitchFocus()
+{
+var HTML_KEY_ARROWLEFT = 37;
+var HTML_KEY_ARROWDOWN = 40;
+var iCode = event.keyCode;
+var strSourceID = event.srcElement.id;
+if (iCode < HTML_KEY_ARROWLEFT || iCode > HTML_KEY_ARROWDOWN)
+ return;
+if (strSourceID == "btnYes")
+{
+ btnNo.focus();
+}
+else
+{
+ btnYes.focus();
+}
+} 
+function btnOKClick()
+{
+window.close();
+} 
+function btnYesClick()
+{
+window.returnValue = true;
+window.close();
+} 
+function docKeypress()
+{
+var L_AffirmativeKeyCodeLowerCase_Number = 121;
+var L_AffirmativeKeyCodeUpperCase_Number = 89;
+var L_NegativeKeyCodeLowerCase_Number  = 110;
+var L_NegativeKeyCodeUpperCase_Number  = 78;
+var intKeyCode = window.event.keyCode;
+if (intKeyCode == L_AffirmativeKeyCodeLowerCase_Number
+ || intKeyCode == L_AffirmativeKeyCodeUpperCase_Number)
+{
+ btnYesClick();
+}
+if (intKeyCode == L_NegativeKeyCodeLowerCase_Number
+ || intKeyCode == L_NegativeKeyCodeUpperCase_Number)
+{
+ btnOKClick();
+}
+} 
+</SCRIPT>
+</HEAD>
+<BODY ID=bdy onLoad="loadBdy()" style="font-family: '宋体, MS Song';
+font-size: 9pt; background: threedface; color: windowtext;" topmargin=0>
+<CENTER id=ctrErrorMessage>
+<table id=tbl1 cellPadding=3 cellspacing=3 border=0 
+style="background: buttonface; font-family: 宋体, MS Song; font-size: 9pt;">
+<TR>
+<TD id=tdImage>
+<img id=imgWarning src=warning.gif width=36 height=38 border=0 align=middle>
+</TD>
+<TD id=tdErrorMessage>
+当前页的脚本发生错误。
+</TD>
+</TR>
+</TABLE>
+</CENTER>
+<DIV id=divTop style="background: threedface; font-family: 宋体, MS Song; 
+font-size: 9pt; margin-left: 1.5em">
+<TABLE border=0 id=tbl2
+style="background: buttonface; font-family: 宋体, MS Song; font-size: 9pt;
+margin-left: 1em;">
+<TBODY>
+<TR valign=top>
+<TD id=tdLine nowrap>
+行:&nbsp;&nbsp;&nbsp;&nbsp;
+</TD>
+<TD id=tdSpanLine>
+<SPAN id=spnLine></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdChar nowrap>
+字符:&nbsp;&nbsp;&nbsp;&nbsp;
+</TD>
+<TD id=tdSpanCharacter>
+<SPAN id=spnCharacter></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdError nowrap>
+错误:&nbsp;&nbsp;&nbsp;&nbsp;
+</TD>
+<TD id=tdSpanError>
+<DIV id=spnError style="background: threedface;
+font-family: 宋体, MS Song; font-size: 9pt; width: 31em;"></DIV>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdCode nowrap>
+代码:&nbsp;&nbsp;&nbsp;&nbsp;
+</TD>
+<TD id=tdSpanCode>
+<SPAN id=spnCode></SPAN>
+</TD>
+</TR>
+<TR valign=top>
+<TD id=tdURL nowrap>
+URL:&nbsp;&nbsp;&nbsp;&nbsp;
+</TD>
+<TD id=tdSpanURL>
+<TEXTAREA id=txaURL style="font-family: 宋体, MS Song; font-size: 9pt; 
+background: buttonface; overflow: hidden; width: 28em; height: 3.9em; 
+border: 0px;" readonly wrap=physical tabindex=-1>
+</TEXTAREA>
+</TD>
+</TR>
+</TBODY>
+</TABLE>
+</DIV>
+<DIV id=divDebug style="background: threedface; position: absolute;
+font-family: 宋体, MS Song; font-size: 9pt; top: 17em;
+text-align: center; width=100%;">
+是否继续运行该页的脚本程序?
+</DIV>
+<DIV id=divButttons style="background: buttonface; position: absolute;
+font-family: 宋体, MS Song; font-size: 9pt; top: 20em; width: 100%">
+<CENTER id=ctrButtons>
+<BUTTON ID=btnYes style="font-family: 宋体, MS Song; font-size: 9pt;
+width: 5.5em; height: 2.2em;" type=submit accesskey=y>
+是(<U id=undYes>Y</U>)
+</BUTTON>
+<BUTTON ID=btnNo style="font-family: 宋体, MS Song; font-size: 9pt;
+width: 5.5em; height: 2.2em" type=reset accesskey=N>
+否(<U id=undNo>N</U>)
+</BUTTON>
+</CENTER>
+</DIV>
+</BODY>
+</HTML>

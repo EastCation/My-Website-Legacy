@@ -1,0 +1,236 @@
+<HTML id=dlgAnalyze STYLE="font-family: 宋体, MS Song; font-size: 9pt;
+width: 30em; height: 33em">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE id=dialogTitle>
+分析文档
+</TITLE>
+<SCRIPT LANGUAGE="JavaScript" defer>
+window.onerror = HandleError
+function HandleError(message, url, line)
+{
+var L_Dialog_ErrorMessage = "该对话框中发生错误。";
+var L_ErrorNumber_Text = "错误: ";
+var str = L_Dialog_ErrorMessage + "\n\n" 
+ + L_ErrorNumber_Text + line + "\n"
+ + message;
+alert (str);
+window.close();
+return true;
+}
+function otherDocument() 
+{
+return window.dialogArguments.document;
+}
+function loadBdy()
+{
+document.all.btnOk.onclick = new Function("window.close();");
+document.onkeyup = new Function("documentOnKeyUp()");
+runAnalysis();
+} 
+function documentOnKeyUp()
+{
+if (window.event.keyCode == 27)
+{
+ window.close();
+}
+} 
+function runAnalysis() 
+{ 
+var errorsFound, reportLocation;
+errorsFound = false;
+reportLocation = document.all.ReportArea;
+initializeResults(reportLocation);
+errorsFound = errorsFound || checkBodyWithinFrameset(reportLocation);
+errorsFound = errorsFound || checkAnythingAfterFrameset(reportLocation);
+errorsFound = errorsFound || checkUnloadedComponents(reportLocation);
+errorsFound = errorsFound || checkNonApartmentControls(reportLocation);
+errorsFound = errorsFound || checkUnloadedStyleSheets(reportLocation);
+if (errorsFound == false) {
+ reportNothingFound(reportLocation);
+}
+}
+function initializeResults(reportLocation) 
+{
+reportLocation.innerHTML = "&nbsp;";
+}
+function reportNothingFound(reportLocation) 
+{
+var L_NoErrors_Text = "没有发现错误。";
+reportLocation.innerHTML = L_NoErrors_Text;
+}
+function checkBodyWithinFrameset(reportLocation) 
+{
+var theDocument;
+var framesets, bodies;
+var retVal;
+var L_FramesetInBody_Text = "因为文档的 BODY 中存在 FRAMESET，所以可能无法正确显示该文档。网页作者可通过<OL><li>删除 BODY 标记</li><li>确保文档的 HEAD 和 FRAMESET 之间没有其他 HTML 代码</li></ol>来解决这一问题。<br><hr>";
+retVal = false;
+theDocument = otherDocument();
+framesets = theDocument.all.tags("frameset");
+if (framesets.length > 0) {
+ bodies = theDocument.all.tags("body");
+ if (bodies.length > 0) {
+  reportLocation.insertAdjacentHTML("BeforeEnd", L_FramesetInBody_Text );
+  retVal = true;
+ }
+}
+return retVal;
+}
+function checkAnythingAfterFrameset(reportLocation) 
+{
+var L_ContentAfterFrameset_Text = "由于 FRAMESET 标记后有内容，因此该文档可能无法正确显示。<br><hr>";
+var theDocument;
+var framesets;
+var i, startIndex;
+var retVal;
+retVal = false;
+theDocument = otherDocument();
+framesets = theDocument.all.tags("frameset");
+if (framesets.length > 0) {
+ startIndex = framesets(0).sourceIndex;
+ if (window.dialogArguments.anythingAfterFrameset) {
+ reportLocation.insertAdjacentHTML("BeforeEnd", L_ContentAfterFrameset_Text );
+ retVal = true;
+ }
+}
+return retVal;
+}
+function checkUnloadedComponents(reportLocation) 
+{
+var theDocument;
+var objects, applets, embeds;
+var retVal;
+retVal = false;
+theDocument = otherDocument();
+objects = theDocument.all.tags("object");
+applets = theDocument.all.tags("applet");
+embeds = theDocument.all.tags("embed");
+retVal = checkReadyStateComplete(objects, reportLocation);
+retVal = retVal || checkReadyStateComplete(applets, reportLocation);
+retVal = retVal || checkReadyStateComplete(embeds, reportLocation);
+return retVal;
+}
+function checkReadyStateComplete(objects, reportLocation) 
+{
+var L_ObjectNotInstalled_Text = "未正确安装以下对象。<BR>";
+var L_AppletNotInstalled_Text = "未正确安装以下 Applet。<BR>";
+var L_EmbedNotInstalled_Text = "未正确安装以下嵌入式对象。<BR>";
+var L_ObjectNotInstalledReasons_Text = "<br><br>可能是由下面的某项条件造成:<OL><LI>当前安全设置可防止使用该对象。</li><li>该对象未正确安装在计算机上。</li><li>该页或对象的编写错误。</li></ul><hr>";
+var L_AppletNotInstalledReasons_Text = "<br><br>可能是由下面某项条件造成:<OL><LI>当前安全设置可防止使用这个 Applet。</li><li>这个 Applet 未正确安装在计算机上。</li><li>该网页或 Applet 编写错误。</li></ul><hr>";
+var L_EmbedNotInstalledReasons_Text = "<br><br>可能是由下面的某项条件造成:<OL><LI>当前安全设置可防止使用该嵌入对象。</li><li>该嵌入对象未正确安装在计算机上。</li><li>该网页或嵌入对象编写错误。</li></ul><hr>";
+var strNotInstalled;
+var strNotInstalledReason;
+var i, element;
+var retVal;
+retVal = false;
+if (objects == null) 
+ return retVal;
+for (i=0; i < objects.length; i++) {
+ element = objects(i);
+ if (element.readyState != 4 && element.readyState != "complete") {
+  switch (element.tagName.toLowerCase())
+  {
+  case "object":
+   strNotInstalled = L_ObjectNotInstalled_Text;
+   strNotInstalledReason = L_ObjectNotInstalledReasons_Text;
+   break;
+  case "applet":
+   strNotInstalled = L_AppletNotInstalled_Text;
+   strNotInstalledReason = L_AppletNotInstalledReasons_Text;
+   break;
+  case "embed":
+   strNotInstalled = L_EmbedNotInstalled_Text;
+   strNotInstalledReason = L_EmbedNotInstalledReasons_Text;
+   break;
+  }
+ reportLocation.insertAdjacentHTML("BeforeEnd", strNotInstalled);
+ reportLocation.insertAdjacentText("BeforeEnd", element.outerHTML);
+ reportLocation.insertAdjacentHTML("BeforeEnd", strNotInstalledReason);
+ retVal = true;
+ }
+}
+return retVal;
+}
+function checkNonApartmentControls(reportLocation) 
+{
+var L_ObjectNotApartmentModel_Text = "由于不使用 Apartment 线程模型，因此以下对象不能在所有环境下可靠工作。<br>";
+var theDocument;
+var objects;
+var i;
+var retVal;
+retVal = false;
+theDocument = otherDocument();
+objects = theDocument.all.tags("object");
+for (i=0; i < objects.length; i++) {
+ element = objects(i);
+ nonApartmentModel = checkCLSIDForNonApartmentModel(element);
+ retVal = retVal || nonApartmentModel;
+ if (nonApartmentModel == true) {
+ reportLocation.insertAdjacentHTML("BeforeEnd", L_ObjectNotApartmentModel_Text);
+ reportLocation.insertAdjacentText("BeforeEnd", element.outerHTML);
+ reportLocation.insertAdjacentHTML("BeforeEnd", "<br><hr>");
+ }
+} 
+return retVal;
+}
+function checkCLSIDForNonApartmentModel(element) {
+return !(window.dialogArguments.isApartmentModel(element));
+}
+function checkUnloadedStyleSheets(reportLocation) 
+{
+var theDocument;
+var links;
+var retVal;
+retVal = false;
+theDocument = otherDocument();
+links = theDocument.all.tags("link");
+retVal = checkLinkReadyStateComplete(links, reportLocation);
+return retVal;
+}
+function checkLinkReadyStateComplete(objects, reportLocation) 
+{
+var i, element;
+var retVal;
+var L_StyleSheetNotInstalled_Text = "由于未安装以下样式表，因此该文档可能无法正确显示: ";
+retVal = false;
+if (objects == null) 
+ return retVal;
+for (i=0; i < objects.length; i++) {
+ element = objects(i);
+ if (element.rel.toLowerCase() == "stylesheet"
+  || element.rel.toLowerCase() == "alternate stylesheet")
+ {
+  if (element.readyState != "complete" && element.readyState != 4) {
+  reportLocation.insertAdjacentHTML("BeforeEnd", L_StyleSheetNotInstalled_Text + element.href + "<BR><hr>");
+  retVal = true;
+  }
+ }
+ }
+return retVal;
+}
+</SCRIPT>
+</HEAD>
+<BODY ID=bdy onLoad="loadBdy()" style="font-family: '宋体, MS Song';
+font-size: 9pt; background: threedface; color: windowtext;" 
+topmargin=0 scroll=no>
+<br id=brAnalysis>&nbsp;&nbsp;当前文档的分析结果:<br>
+<br>
+<DIV id=ReportArea style="height: 75%; width: 93%; 
+position: absolute; left: 5%; top: 12%; overflow: auto; padding: 3px;
+border-style: solid; border-width: 1px; border-color: threeddarkshadow">
+没有发现错误。
+</DIV>
+<br id=br2><P id=par1>&nbsp;</P>
+<DIV id=divButton style="font-family: 宋体, MS Song; font-size: 9pt; 
+width: 10em; height: 2.2em; position: absolute;
+top: 27.1em; left: 15em; background: threedface;">
+</DIV>
+<BUTTON id=btnOk tabIndex=55 
+style="font-family: 宋体, MS Song; font-size: 9pt; 
+width: 7em; height: 2.2em; position: absolute;
+top: 27.5em; left: 21em" type=submit>
+确定
+</BUTTON>
+</BODY>
+</HTML>

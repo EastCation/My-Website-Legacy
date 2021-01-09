@@ -1,0 +1,175 @@
+<HTML id=dlgAbout STYLE="width: 29.2em; height: 22.6em">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<head>
+<TITLE>
+关于 Internet Explorer
+</TITLE>
+<style>
+.versionformat {
+ color: black;
+ font-family: 宋体, MS Song;
+ font-size: 9pt;
+ position: absolute;
+ left: 0em;
+ top: 0em;
+ height: 2em;
+ width:25em;
+ z-index: 20;
+}
+.textformat {
+ color: black;
+ font-family: 宋体, MS Song;
+ font-size:9pt;
+ position: absolute;
+ left: 10em;
+ top: 19.8em;
+ height: 3em;
+ width:26.5em;
+}
+.logo {
+ color: LIGHTGREY;
+ font-family: 宋体, MS Song;
+ font-size:40pt;
+ position: absolute;
+ left: 1.9em;
+ top: 4.5em;
+ height: 0.5em;
+ width:1em;
+ z-index: -1;
+}
+.button {
+ width: 7em;
+ height: 2.2em;
+ color: buttontext;
+ font-family: 宋体, MS Song;
+ font-size:9pt;
+ cursor: hand;
+  }
+</style>
+<script>
+function HandleError(message, url, line)
+{
+var L_Dialog_ErrorMessage = "该对话框中发生错误。";
+var L_ErrorNumber_Text = "错误: ";
+var str = L_Dialog_ErrorMessage + "\n\n"
+ + L_ErrorNumber_Text + line + "\n"
+ + message;
+alert (str);
+window.close();
+return true;
+}
+function BodyOnKeyPress(nCode)
+{
+if (nCode == 27) 
+{
+ window.close();
+ return;
+}
+}
+function OnPageLoad()
+{
+var L_PreCipherStrength_Text = "";
+var L_PostCipherStrength_Text = "- 位";
+var L_UpdateInfo_Text = "更新信息";
+var L_Unknown_Text = "未知 ";
+L_UpdateVersions_Text = "更新版本:";
+L_updateWidth_number= "9em";
+L_updateFontSize_number="9pt";
+L_UpdateFont_Fontname ="宋体, MS Song";
+updateUrl = "";
+var cipherStrength = "";
+if ((null != window.dialogArguments))
+{
+ arrArgs = window.dialogArguments.split("~");
+ spaVersion.innerText = arrArgs[0];
+ if (arrArgs[3] == "168")
+  cipherStrength = 128;
+ else if (arrArgs[3] == "128")
+  cipherStrength = 40;
+ else
+  cipherStrength = arrArgs[3];
+ spaCipher.innerText = L_PreCipherStrength_Text + cipherStrength + L_PostCipherStrength_Text;
+ pID.innerText=arrArgs[4];
+ if (null != arrArgs[6])
+  spaIEAKInfo.innerText = arrArgs[6];
+ updateUrl = arrArgs[5];
+}
+else
+{
+ spaVersion.innerText = L_Unknown_Text;
+ spaCipher.innerText = L_Unknown_Text;
+ pID.innerText = L_Unknown_Text;
+}
+if ("" == updateUrl)
+ updateUrl = "http://www.microsoft.com/isapi/redir.dll?prd=ie&ar=128bit";
+spaUpdateUrl.innerHTML = "<a style='WIDTH: " + L_updateWidth_number + "; COLOR: black; FONT: " + L_updateFontSize_number + L_UpdateFont_Fontname + " ' href='" + updateUrl + "' id='copyright'>" + L_UpdateInfo_Text + "</a>";
+var mv=window.navigator.appMinorVersion;
+if(mv!="0") minorversion.innerText=L_UpdateVersions_Text + mv;
+}
+window.onerror = HandleError;
+</script>
+</head>
+<BODY bgcolor="#FFFFFF" onload="OnPageLoad()" onkeydown="BodyOnKeyPress(event.keyCode)" onkeypress="BodyOnKeyPress(event.keyCode)"
+scroll=no>
+<table border=0>
+<TR height=10>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+<TD></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD colspan=3><img src="ie5.gif"></TD>
+<TD></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD></TD>
+<TD id=ProdInfoAlign colspan=2 align=left>
+ <ID id=ProductInfo1>
+ <span id=ProdInfoStyle style="WIDTH: 25em; COLOR: black; FONT: 9pt 宋体, MS Song">
+ <BR>
+ <ID id=ProductInfo2>
+ 版本:</id> <SPAN id=spaVersion></SPAN><br>
+ <ID id=ProductInfo3>
+ 密钥长度: </id><SPAN id=spaCipher ></SPAN>&nbsp;(<SPAN id=spaUpdateUrl></SPAN>)<br>
+ <ID id=ProductInfo4>
+ 产品 ID:</id><SPAN id=pID></SPAN><br>
+ <span id=minorversion></SPAN><br>
+ <ID id=ProductInfo6></id>
+ <SPAN id=spaIEAKInfo>&nbsp;</SPAN>
+</TD>
+<TD></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD></TD>
+<TD id=copyrightAlign colspan=2 align=left> <TEXTAREA style="WIDTH: 28em; Font: 9pt 宋体, MS Song" id=copyrightText border=0 cols=55 rows=4 readonly>
+本软件是在 NCSA Mosaic 的基础上完成的。NCSA Mosaic(TM) 由位于 Urbana-Champaign 的伊利诺斯大学的超级计算机应用程序国家中心 (NCSA) 开发。
+未经 Spyglass 公司的授权许可不得擅自发布该软件。
+包括由 RSA Data Security Inc.授权的安全软件。
+该软件的部分模块是以独立工作组 JPEG 所做工作为基础的。
+包括由 Hummingbird Communications Ltd. 授权的 SOCKS 客户软件。
+包括由 Open Systems Solutions, Inc. 授权的 ASN.1 软件。
+由 Intel 公司提供的多媒体软件组件包括 Indeo(R) 视频、Indeo(R) 音频和 Web 设计效果。
+Unix 版本包括由 Mainsoft 公司授权的软件。版权所有(c) 1998-1999 Mainsoft 公司。保留所有权利。Mainsoft 是 Mainsoft 公司的注册商标。
+警告: 本计算机程序受著作权法和国际公约的保护，未经授权擅自复制或散布本程序的部分或全部，将承受严厉的民事和刑事处罚，对已知的违反者将给予法律范围内的全面制裁。
+</TEXTAREA>
+</TD>
+<TD></TD>
+</TR>
+<TR>
+<TD></TD>
+<TD width=80><img src="flag.gif"></TD>
+<TD id=ProductInfo5><a style="WIDTH: 20em; COLOR: black; FONT: 9pt 宋体, MS Song" href="http://www.microsoft.com/isapi/redir.dll?prd=ie&pver=5.0&ar=aboutie&sba=copyr" id="copyright"><ID id=copyrghtText>版权所有 (C) 1995-1999 Microsoft Corp.</ID></a>
+</TD>
+<TD id=ok-button align=right><BUTTON tabindex=1 type=submit align=right id="okButton" class=button onClick="window.close();" >确定</BUTTON>
+</TD>
+<Td></TD>
+</TR>
+</table>
+</span>
+</BODY>
+</HTML>

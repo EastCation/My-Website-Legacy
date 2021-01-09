@@ -7,31 +7,30 @@ a:link			{font:9pt/14pt 宋体, MS Song; color:red}
 a:visited		{font:9pt/14pt 宋体, MS Song; color:#4e4e4e}
 </style>
 <meta HTTP-EQUIV="Content-Type" Content="text-html; charset=gb2312">
-<title>HTTP 404 未找到</title>
+<title>HTTP 400 - 错误的请求</title>
 </head>
 <script> 
-
 function Homepage(){
+
 // in real bits, urls get returned to our script like this:
 // res://shdocvw.dll/http_404.htm#http://www.DocURL.com/bar.htm 
 
 	//For testing use DocURL = "res://shdocvw.dll/http_404.htm#https://www.microsoft.com/bar.htm"
-	DocURL = document.location.href;
-		
+	DocURL=document.location.href;
+	
 	//this is where the http or https will be, as found by searching for :// but skipping the res://
 	protocolIndex=DocURL.indexOf("://",4);
 	
 	//this finds the ending slash for the domain server 
 	serverIndex=DocURL.indexOf("/",protocolIndex + 3);
 
-		//for the href, we need a valid URL to the domain. We search for the # symbol to find the begining 
+	//for the href, we need a valid URL to the domain. We search for the # symbol to find the begining 
 	//of the true URL, and add 1 to skip it - this is the BeginURL value. We use serverIndex as the end marker.
 	//urlresult=DocURL.substring(protocolIndex - 4,serverIndex);
 	BeginURL=DocURL.indexOf("#",1) + 1;
+	urlresult=DocURL.substring(BeginURL,serverIndex);
 	if (protocolIndex - BeginURL > 7)
 		urlresult=""
-	
-	urlresult=DocURL.substring(BeginURL,serverIndex);
 
 	//for display, we need to skip after http://, and go to the next slash
 	displayresult=DocURL.substring(protocolIndex + 3 ,serverIndex);
@@ -42,47 +41,45 @@ function Homepage(){
 	displayresult = displayresult.replace(forbiddenChars, "");
 
 	document.write('<A target=_top HREF="' + urlresult + '">' + displayresult + "</a>");
-
 }
 
 </script>
 
 
-<body bgcolor="white">
+<body bgColor="white">
 <object id=saOC CLASSID='clsid:B45FF030-4447-11D2-85DE-00C04FA35C89' HEIGHT=0 width=0></object>
 
 <table width="400" cellpadding="3" cellspacing="5">
   <tr>
     <td id="tableProps" valign="top" align="left"><img id="pagerrorImg" SRC="pagerror.gif"
     width="25" height="33"></td>
-    <td id="tableProps2" align="left" valign="middle" width="360"><h1 id="errortype"
-    style="COLOR: black; FONT: 13pt/26pt 宋体, MS Song"><span id="errorText">找不到该页</span></h1>
+    <td id="tableProps2" align="left" valign="middle" width="360"><h1 id="term1"
+    style="COLOR: black; FONT: 13pt/26pt 宋体, MS Song"><span id="pageNotFound">找不到该页</span></h1>
     </td>
   </tr>
   <tr>
-    <td id="tablePropsWidth" width="400" colspan="2"><font
-    style="COLOR: black; FONT: 9pt/14pt 宋体, MS Song">
+    <td id="tablePropsWidth" width="400" colspan="2"><font id="LID1" style="COLOR: black; FONT: 9pt/14pt 宋体, MS Song">
 您要查看的页已删除，
 或已改名，或暂时不可用。</font></td>
   </tr>
   <tr>
-    <td id="tablePropsWidth2" width="400" colspan="2"><font id="LID1"
+    <td id="tablePropsWidth" width="400" colspan="2"><font id="LID2"
     style="COLOR: black; FONT: 9pt/14pt 宋体, MS Song"><hr color="#C0C0C0" noshade>
-    <p id="LID2">请尝试以下操作:</p><ul>
-      <li id="list1">如果您已经在地址栏中输入该网页的地址，请确认其拼写正确。<BR>
+    <p id="LID3">请尝试以下操作:</p><ul>
+      <li ID="list1">如果您已经在地址栏中输入该网页的地址，请确认其拼写正确。<BR>
       </li>
-      <li id="list2">打开 <script> Homepage(); </script> 主页，然后查找指向您感兴趣信息的链接。 </li>
-      <li id="list3">单击<a href="javascript:history.back(1)"><img valign=bottom border=0 src="back.gif">后退</a>按钮，尝试其他链接。 </li>    
+      <li ID="list2">打开 <SCRIPT> Homepage();</SCRIPT> 主页，然后查找指向您感兴趣信息的链接。 </li>
+		 <li id="list3">单击<a href="javascript:history.back(1)"><img valign=bottom border=0 src="back.gif">后退</a>按钮，尝试其他链接。 </li>
+
       <li ID="list4">单击<a onclick="saOC.NavigateToDefaultSearch();event.returnValue=false" href=""><img border=0 src="search.gif" width="16" height="16" alt="search.gif (114 字节)" align="center">搜索</a>，寻找 Internet 上的信息。 </li>
-</ul>
+    </ul>
     <p><br>
     </p>
-    <h2 id="ietext" style="font:9pt/14pt 宋体, MS Song; color:black">HTTP 404 - 未找到文件<br>
-    Internet Explorer <BR>
-    </h2>
+    <h2 ID="errortext" style="COLOR: black; FONT: 9pt/14pt 宋体, MS Song">HTTP 400 - 错误请求<BR>
+Internet Explorer </h2>
     </font></td>
-
   </tr>
+</TBODY>
 </table>
 </body>
 </html>

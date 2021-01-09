@@ -1,0 +1,68 @@
+<HTML id=anchbrws style="font-family: 宋体, MS Song; font-size: 9pt;
+width: 31.5em; height: 32.5em">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE>常规</TITLE>
+<SCRIPT>
+function BodyLoad()
+{
+var L_NotAvailable_Text = "不可用";
+var arrAll = document.all;
+for (i=0; i < arrAll.length; i++)
+{
+ var elm = arrAll[i];
+ if (elm.id.substring(0,1) == "_")
+ {
+  if (elm.innerText== "undefined" || elm.innerText == "")
+  {
+   elm.innerText = L_NotAvailable_Text;
+  }
+ }
+}
+}
+</SCRIPT>
+</HEAD>
+<BODY onload="BodyLoad()" id=bdy style="font-family: 宋体, MS Song; font-size: 9pt;
+background: buttonface; color: windowtext" scroll=no>
+<table id=tbl1 cellPadding=3 cellspacing=2 border=0 style="font-family: 宋体, MS Song;
+font-size: 9pt;" width=100%>
+<TR>
+<TD id=tdImage>
+<img id=imgLink src=link.gif width=35 height=36 border=0>
+</td>
+<td id=td1 style="font-family: 宋体, MS Song; font-size: 9pt">
+<TEXTAREA id=_nameProp style="font-family: 宋体, MS Song; font-size: 9pt; 
+background: buttonface; overflow: hidden; width: 24em; height: 2.3em;
+border: 0px" readonly=1 wrap=physical tabindex=-1></TEXTAREA>
+</td></tr>
+<tr>
+<td id=td2 style="font-family: 宋体, MS Song; font-size: 9pt" colspan=2>&nbsp;
+<hr id=hr1>
+</td>
+</tr>
+<tr>
+<Td nowrap id=td3 style="font-family: 宋体, MS Song; font-size: 9pt">协议:
+</TD>
+<td id=td4 style="font-family: 宋体, MS Song; font-size: 9pt">
+<TEXTAREA id=_protocolLong style="font-family: 宋体, MS Song; font-size: 9pt; 
+background: buttonface; overflow: hidden; width: 24em; height: 1.5em;
+border: 0px" readonly=1 wrap=physical tabindex=-1></TEXTAREA></TD></tr>
+<tr>
+<TD id=td4a style="font-family: 宋体, MS Song; font-size: 9pt">类型:
+</TD>
+<TD id=td5 style="font-family: 宋体, MS Song; font-size: 9pt">
+<TEXTAREA id=_mimeType style="font-family: 宋体, MS Song; font-size: 9pt; 
+background: buttonface; overflow: hidden; width: 24em; height: 1.5em;
+border: 0px" readonly=1 wrap=physical tabindex=-1></TEXTAREA></TD></tr>
+<tr>
+<td id=td6 style="font-family: 宋体, MS Song; font-size: 9pt" 
+valign=top>地址:<br>
+(URL)
+</TD>
+<TD id=td7 style="font-family: 宋体, MS Song; font-size: 9pt" valign=top>
+<TEXTAREA id=_href style="font-family: 宋体, MS Song; font-size: 9pt; 
+background: buttonface; overflow: hidden; width: 24em; height: 2.3em;
+border: 0px" readonly=1 wrap=physical tabindex=-1></TEXTAREA></TD></tr>
+</table>
+</BODY>
+</HTML>

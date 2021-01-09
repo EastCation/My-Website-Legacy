@@ -1,0 +1,349 @@
+//<SCRIPT LANGUAGE="JavaScript">
+function callHelp(elm)
+{
+if (null != elm.helpid)
+{
+ window.showHelp(elm.helpfile, "" + parseInt(elm.helpid),
+  "popup");
+}
+else
+{
+ if ("BODY" != elm.tagName)
+ {
+  callHelp(elm.parentElement);
+ }
+}
+} 
+function btnCancelClick()
+{
+window.close();
+} 
+function getTextRange(elm)
+{
+var r = elm.parentTextEdit.createTextRange();
+r.moveToElementText(elm);
+return r;
+} 
+function mouseClick()
+{
+if (window.event.srcElement.id.substring(0,3)
+ == "txt")
+{
+ return;
+}
+if (window.event.button == 2)
+{
+ callHelp(window.event.srcElement);
+}
+} 
+function txtDefaultESC()
+{
+if (event.keyCode == 27)
+{
+ window.close();
+ return;
+}
+} 
+window.onerror = HandleError
+var L_Dialog_ErrorMessage = "该对话框中发生错误。";
+var L_ErrorNumber_Text = "错误: ";
+function HandleError(message, url, line)
+{
+var str = L_Dialog_ErrorMessage + "\n\n" 
+ + L_ErrorNumber_Text + line + "\n"
+ + message;
+alert (str);
+window.close();
+return true;
+}
+function setFindState(fEvent) { if (fEvent && (event.propertyName != "value")) { return; } if (("" == txtFindText.value) == g_fFindEnabled) { btnFind.disabled = g_fFindEnabled; g_fFindEnabled = !g_fFindEnabled; } } var g_fFindEnabled = false;
+var g_docLastFound; 
+var g_fFrameset = false; 
+var g_arrFrames = new Array(); 
+var g_fSearchTopFrame = false; 
+var g_fFollowIframes = true;  
+var g_fError = false; 
+function FindHandleError(message, url, line)
+{
+var L_Find_DIALOG_NoAction_ErrorMessage = "对象不支持该操作";
+var L_Find_DIALOG_NoProperty_ErrorMessage = "对象不支持该属性或方法";
+if (message != L_Find_DIALOG_NoProperty_ErrorMessage)
+{
+ if (message != L_Find_DIALOG_NoAction_ErrorMessage)
+ {
+  var str = L_Dialog_ErrorMessage + "\n\n" 
+   + L_ErrorNumber_Text + line + "\n"
+   + message;
+  alert (str);
+  window.close();
+ }
+ else 
+ {
+  g_fError = true;
+  g_fFrameset = false;
+ }
+}
+return true;
+}
+function CrawlPath()
+{
+var win = window.dialogArguments.unsecuredWindowOfDocument;
+var i = 0;
+if (g_fSearchTopFrame)
+{
+ return win;
+}
+while (g_arrFrames[i] >= 0)
+{
+ win = win.frames[g_arrFrames[i]];
+ i++;
+}
+return win;
+} 
+function AtFrameset()
+{
+var win = CrawlPath();
+return win.frames.length;
+} 
+function AtIframe()
+{
+var win = CrawlPath();
+return win.document.all.tags("IFRAME").length;
+} 
+function IsLegalPage(win)
+{
+var arrBadFileTypes = new Array(".doc", ".xls", ".pdf");
+var strHref = win.location.href;
+for (i=0; i < arrBadFileTypes.length; i++)
+{
+ if (strHref.lastIndexOf(arrBadFileTypes[i]) == (strHref.length - 4))
+ {
+  return false;
+ }
+}
+return true;
+}
+function GetCurrentPos()
+{
+var i = GetCurrentDepth();
+return g_arrFrames[i];
+} 
+function GetCurrentDepth()
+{
+var i = 0;
+while (g_arrFrames[i] >= 0)
+{
+ i++;
+}
+return i-1;
+} 
+function MovePossible(fForward)
+{
+var intCurPos = GetCurrentPos();
+var win = CrawlPath();
+var winParent = win.parent;
+if (fForward)
+{
+ if ((winParent.frames.length - intCurPos - 1)
+  && (IsLegalPage(winParent.frames[intCurPos + 1])))
+ {
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+else
+{
+ return (intCurPos != 0);
+}
+} 
+function MoveUpFrameset()
+{
+var i = GetCurrentDepth();
+g_arrFrames[i] = -1;
+} 
+function MoveDownFrameset(fForward)
+{
+var i = GetCurrentDepth();
+var win = CrawlPath();
+g_arrFrames[i+1] = fForward ? 0 : win.frames.length - 1;
+g_arrFrames[i+2] = -1;
+} 
+function MoveWin(fForward)
+{
+var intDepth = GetCurrentDepth();
+var intPos = GetCurrentPos();
+g_arrFrames[intDepth] = fForward ? ++intPos : --intPos;
+} 
+function MoveDoc(fForward)
+{
+if (g_fSearchTopFrame) 
+{ 
+ if (fForward)
+ {
+  g_fSearchTopFrame = false;
+  return true;
+ }
+ else
+ {
+  return false;
+ }
+}
+if (!fForward && (g_arrFrames[0] == 0) && (g_arrFrames[1] < 0)
+ && window.dialogArguments.document.all.tags("IFRAME").length)
+{
+ g_fSearchTopFrame = true;
+ return true;
+}
+if (g_fFollowIframes && AtIframe())
+{
+ MoveDownFrameset(fForward);
+ while (!AtIframe() && AtFrameset())
+ {
+  MoveDownFrameset(fForward);
+  return true;
+ }
+ return false;
+}
+if (MovePossible(fForward))
+{
+ MoveWin(fForward);
+ g_fFollowIframes = true;
+ while (!AtIframe() && AtFrameset())
+ {
+  MoveDownFrameset(fForward);
+ }
+ return true;
+}
+else
+{
+ if (GetCurrentDepth() > 0)
+ {
+  MoveUpFrameset();
+  while (AtIframe() && !MovePossible(fForward)
+   && (GetCurrentDepth() >= 0))
+  {
+   MoveUpFrameset();
+  }
+  if (AtIframe() && MovePossible(fForward))
+  {
+   g_fFollowIframes = false;
+  }
+  return MoveDoc(fForward);
+ }
+}
+return false;
+} 
+function GetFirstDoc()
+{
+var win;
+var doc = window.dialogArguments.document;
+if (doc.all.tags("IFRAME").length)
+{
+ g_fSearchTopFrame = true;
+ return doc;
+}
+while (!AtIframe() && AtFrameset())
+{
+ MoveDownFrameset(true);
+}
+win = CrawlPath();
+return win.document;
+} 
+function btnFindClick()
+{
+var docSearch; 
+var L_FinishedDocument_Text = "文档搜索完毕。";
+var intDirection;  
+var rngWorking;   
+var rngFoundText;  
+var fFoundText = false; 
+var index;
+findStartPoint();
+if (g_fFrameset)
+{
+ var win;
+ if (!AtIframe() && AtFrameset())
+ {
+  MoveDownFrameset(!radDirection[0].checked);
+  while (!AtIframe() && AtFrameset())
+  {
+   MoveDownFrameset(!radDirection[0].checked);
+  }
+ }
+ win = CrawlPath();
+ docSearch = win.document;
+}
+else
+{
+ docSearch = window.dialogArguments.document;
+}
+if (docSearch.queryCommandState("BrowseMode")
+ && docSearch.selection.type != "Text")
+{
+ if (docSearch.body == null)
+  return;
+ rngWorking = docSearch.body.createTextRange();
+}
+else
+{
+ rngWorking = docSearch.selection.createRange();
+}
+fFoundText = (docSearch.selection.type == "Text");
+if (radDirection[0].checked) 
+{
+ if (fFoundText)
+ {
+  rngWorking.moveEnd("character" , -1);
+ }
+ while (0 != rngWorking.moveStart("textedit", -1))
+ {
+ }
+ intDirection = -1000000000;
+}
+else       
+{
+ if (fFoundText)
+ {
+  rngWorking.moveStart("character", 1);
+ }
+ while (0 != rngWorking.moveEnd("textedit", 1))
+ {
+ }
+ intDirection = 1000000000; 
+}
+rngFoundText = rngWorking.duplicate();
+success = rngFoundText.findText(txtFindText.value, 
+ intDirection, findFlags());
+if (!success) 
+{
+ if (g_fFrameset)
+ {
+  if (MoveDoc(!radDirection[0].checked))
+  {
+   btnFindClick();
+   return;
+  }
+ }
+ alert(L_FinishedDocument_Text);
+ txtFindText.focus();
+}
+else      
+{
+ if (g_fFrameset)
+ {
+  g_docLastFound.execCommand("Unselect", false);
+  g_docLastFound = docSearch;
+ }
+ rngFoundText.select();
+ rngFoundText.scrollIntoView(true);
+}
+} 
+function btnCancelClick2()
+{
+window.dialogArguments.findText = txtFindText.value;
+window.close();
+} 
+//</SCRIPT>

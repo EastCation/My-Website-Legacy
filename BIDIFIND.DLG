@@ -1,0 +1,236 @@
+<HTML id=dlgFind STYLE="font-family: 宋体, MS Song; font-size: 9pt;
+width: 33.5em; height: 16.2em">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<TITLE id=dialogTitle>
+查找
+</TITLE>
+<SCRIPT LANGUAGE="JavaScript" defer src="findinc.dlg">
+</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" defer>
+function findFlags()
+{
+var htmlMatchWord = 2;
+var htmlMatchCase = 4;
+var htmlMatchDiacritic = 536870912; 
+var htmlMatchKashida = 1073741824; 
+var htmlMatchAlefHamza = 2147483648; 
+return (htmlMatchWord * document.all.chkWholeWord.checked)
+ | (htmlMatchCase * document.all.chkMatchCase.checked)
+ | (htmlMatchDiacritic * document.all.chkMatchDiacritic.checked)
+ | (htmlMatchKashida * document.all.chkMatchKashida.checked)
+ | (htmlMatchAlefHamza * document.all.chkMatchAlefHamza.checked)
+} 
+function loadBdy()
+{
+btnFind.onclick  = new 
+ Function("btnFindClick()");
+btnFind.ondblclick = new
+ Function("btnFindClick()");
+btnCancel.onclick = new Function("btnCancelClick2()");
+document.onhelp  = new Function("callHelp(window.event.srcElement)");
+document.onmouseup = new Function("mouseClick()");
+txtFindText.onpropertychange = new Function("setFindState(true)");
+txtFindText.onfocus = new Function("txtFindText.select()");
+txtFindText.onkeypress = new Function("txtDefaultESC()");
+g_fFindStartPoint = true;
+var docCharset = window.dialogArguments.document.charset;
+if(docCharset == "" ||     
+ docCharset == "utf-8" || 
+ docCharset == "unicode-1-1-utf-8" ||
+ docCharset == "unicode-2-0-utf-8" || 
+ docCharset == "windows-1255" ||  
+ docCharset == "dos-862" ||
+ docCharset == "iso-8859-8" ||
+ docCharset == "iso-8859-8-i" ||
+ docCharset == "windows-1256" ||  
+ docCharset == "asmo-708" || 
+ docCharset == "asmo-720" || 
+ docCharset == "dos-720" || 
+ docCharset == "iso-8859-6")
+{
+ chkMatchDiacritic.disabled = 0;
+ if(docCharset == "windows-1255" || 
+  docCharset == "dos-862" ||
+  docCharset == "iso-8859-8" ||
+  docCharset == "iso-8859-8-i")
+ {
+  chkMatchKashida.checked = 1;
+  chkMatchKashida.disabled = 1;
+  chkMatchAlefHamza.checked = 1;
+  chkMatchAlefHamza.disabled = 1;
+ }
+}
+if ("" != window.dialogArguments.findText)
+{
+ txtFindText.value = window.dialogArguments.findText;
+}
+txtFindText.focus();
+txtFindText.select();
+} 
+function findStartPoint()
+{
+if (g_fFindStartPoint)
+{
+ g_fFindStartPoint = false;
+	var win = window.dialogArguments.unsecuredWindowOfDocument;
+	var doc = window.dialogArguments.document;
+ if (!g_fError && win.frames.length)
+ {
+  var win2;
+  g_fFrameset = true;
+  g_arrFrames[0] = 0;
+  g_arrFrames[1] = -1;
+  win2 = CrawlPath();
+  window.onerror = FindHandleError;
+  doc2 = win2.document;
+  window.onerror = HandleError;
+  while (doc2.selection.type == "None")
+  {
+   if (MoveDoc(true))
+   {
+    win2 = CrawlPath();
+    doc2 = win2.document;
+   }
+   else 
+   {
+    g_arrFrames[0] = 0;
+    g_arrFrames[1] = -1;
+    break;
+   }
+  }
+  doc = GetFirstDoc();
+  g_docLastFound = doc;
+ }
+ if (doc.selection.type == "Control")
+ {
+  var r = doc.selection.createRange();
+  r = getTextRange(r(0));
+  r.select();
+ }
+}
+} 
+</SCRIPT>
+</HEAD>
+<BODY ID=bdy onLoad="loadBdy()" style="color: windowtext;
+font-family: '宋体, MS Song';
+font-size: 9pt; background: threedface;" topmargin=0 scroll=no>
+<BUTTON id=btnFind ACCESSKEY=f DISABLED=1 tabIndex=55 helpid=50026
+helpfile="iexplore.hlp"
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 24.78em; top: 1.0647em; width: 8em; height: 2.2em; " type=submit>
+查找下一个(<u>F</u>)
+</BUTTON>
+<DIV align=absMiddle id=divFindText
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 0.98em; top: 1.6168em; width: 6.8em; height: 1.2168em; ">
+<LABEL FOR=txtFindText ID=lblFindText tabIndex=-1 helpid=50027
+helpfile="iexplore.hlp">
+查找内容(<u>N</u>):
+</LABEL>
+</DIV>
+<INPUT type=text id=txtFindText ACCESSKEY=n tabIndex=15 helpid=50027
+helpfile="iexplore.hlp"
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 7.16em; top: 1.0647em; width: 16.36em; height: 2.1294em; ">
+<BUTTON id=btnCancel tabIndex=60 helpid="0x6F1C" helpfile="windows.hlp"
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 24.78em; top: 3.6504em; width: 8em; height: 2.2em; " type=reset>
+取消
+</BUTTON>
+<INPUT id=chkWholeWord ACCESSKEY=w type=checkbox tabIndex=25 
+helpfile="iexplore.hlp" helpid=50022
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 1em; top: 4.2em; width: 1.2em; height: 1.2em; ">
+<INPUT ACCESSKEY=c type=checkbox tabIndex=35 helpid=50023
+helpfile="iexplore.hlp"
+id=chkMatchCase style="font-family: 宋体, MS Song; font-size: 9pt;
+position: absolute; left: 1em; top: 6em; width: 1.2em;
+height: 1.2em; ">
+<INPUT id=chkMatchDiacritic ACCESSKEY=i type=checkbox tabIndex=36 
+helpfile="iexplore.hlp" helpid=50401
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 1em; top: 7.9em; width: 1.2em; height: 1.2em">
+<INPUT id=chkMatchKashida ACCESSKEY=k type=checkbox tabIndex=37 
+helpfile="iexplore.hlp" helpid=50402
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 1em; top: 9.7em; width: 1.2em; height: 1.2em">
+<INPUT id=chkMatchAlefHamza ACCESSKEY=a type=checkbox tabIndex=38 
+helpfile="iexplore.hlp" helpid=50403
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 1em; top: 11.5em; width: 1.2em; height: 1.2em">
+<DIV id=divWholeWord
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 2.6em; top: 4.2588em; width: 12.46em; height: 1.521em; ">
+<LABEL FOR=chkWholeWord ID=lblWholeWord tabIndex=-1 helpid=50022
+helpfile="iexplore.hlp">
+全字匹配(<u>W</u>)
+</LABEL>
+</DIV>
+<DIV id=divMatchCase style="font-family: 宋体, MS Song; font-size: 9pt;
+position: absolute; left: 2.6em; top: 6.084em; width: 7.42em; 
+height: 1.521em; ">
+<LABEL FOR=chkMatchCase ID=lblMatchCase tabIndex=-1 helpid=50023
+helpfile="iexplore.hlp">
+区分大小写(<u>C</u>)
+</LABEL>
+</DIV>
+<DIV id=divMatchDiacritic
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 2.6em; top: 7.9092em; width: 12.46em; height: 1.521em">
+<LABEL FOR=chkMatchDiacritic ID=lblMatchDiacritic tabIndex=-1 
+helpid=50401
+helpfile="iexplore.hlp">
+Iacritic 匹配(<U>I</U>)
+</LABEL>
+</DIV>
+<DIV id=divMatchKashida
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 2.6em; top: 9.7344em; width: 12.46em; height: 1.521em">
+<LABEL FOR=chkMatchKashida ID=lblMatchKashida tabIndex=-1 
+helpid=50402
+helpfile="iexplore.hlp">
+Kashida 匹配(<U>K</U>)
+</LABEL>
+</DIV>
+<DIV id=divMatchAlefHamza
+style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+left: 2.6em; top: 11.5596em; width: 12.46em; height: 1.521em">
+<LABEL FOR=chkMatchAlefHamza ID=lblMatchAlefHamza tabIndex=-1 
+helpid=50403
+helpfile="iexplore.hlp">
+Alef hamza 匹配(<U>A</U>)
+</LABEL>
+</DIV>
+<FIELDSET id=fldDirection style="font-family: 宋体, MS Song; font-size: 9pt; 
+position: absolute; left: 13.7em; top: 3.5em; width: 9.8em; 
+height: 6.3em;">
+<LEGEND id=lgdDirection>
+方向
+</LEGEND>
+</FIELDSET>
+ <INPUT id=radDirectionUp type=radio name=radDirection ACCESSKEY=u
+ tabIndex=42 helpid=50025 helpfile="iexplore.hlp"
+ style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+ left: 14.6em; top: 5.4em; width: 1.1em; height: 1.1em; ">
+ <DIV id=divDirectionUp style="font-family: 宋体, MS Song; 
+ font-size: 9pt; position: absolute; left: 16.2em; top: 5.3235em; 
+ width: 3.5em; height: 1.521em; ">
+ <LABEL ID=lblDirectionUp style="font-family: '宋体, MS Song'; font-size: 9pt"
+ FOR=radDirectionUp
+ helpid=50025
+ helpfile="iexplore.hlp"> 向上(<u>U</u>) </LABEL>
+ </DIV>
+ <INPUT id=radDirectionDown type=radio CHECKED name=radDirection
+ ACCESSKEY=d tabIndex=47 helpid=50024 helpfile="iexplore.hlp"
+ style="font-family: 宋体, MS Song; font-size: 9pt; position: absolute;
+ left: 14.6em; top: 7.4em; width: 1.1em; height: 1.1em; ">
+ <DIV id=divDirectionDown style="font-family: 宋体, MS Song; 
+ font-size: 9pt; position: absolute; left: 16.2em; top: 7.3em; 
+ width: 4.9em; height: 1.521em; ">
+ <LABEL ID=lblDirectionDown style="font-family: '宋体, MS Song'; font-size: 9pt"
+ FOR=radDirectionDown helpid=50024 helpfile="iexplore.hlp"> 
+ 向下(<u>D</u>) </LABEL>
+ </DIV>
+</BODY>
+</HTML>
