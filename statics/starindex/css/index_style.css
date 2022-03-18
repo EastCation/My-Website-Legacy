@@ -174,6 +174,8 @@ ul li {
 .news_textTitle a:hover,
 .news_title a:hover,
 .special_title a:hover,
+.others_textTitle a:hover,
+.others_title a:hover,
 .special_textTitle a:hover {
     color: #ffc400;
     background-color: transparent;
@@ -230,17 +232,20 @@ ul li {
 
 #releases,
 #news,
+#others,
 #special {
     margin-top: 20px;
 }
 
 .release_title a,
+.others_title a,
 .news_title a {
     display: inline-block;
     float: left;
 }
 
 .release_title .star,
+.others_titles .star,
 .news_title .star {
     width: 1.2%;
     height: auto;
@@ -250,6 +255,7 @@ ul li {
 }
 
 .release_title .heart_line,
+.others_title .heart_line,
 .news_title .heart_line {
     display: inline-block;
     float: right;
@@ -259,6 +265,8 @@ ul li {
 
 .release_title a,
 .release_textTitle a,
+.others_title a,
+.others_textTitle a,
 .news_textTitle a,
 .news_title a,
 .special_title a,
@@ -274,6 +282,7 @@ ul li {
 }
 
 .release_textTitle a,
+.others_textTitle a,
 .news_textTitle a {
     display: block;
     margin: 5px auto;
@@ -327,12 +336,14 @@ ul li {
     opacity: 1;
 }
 
-.news_box {
+.news_box,
+.others_box {
     line-height: 2.0 !important;
     margin-left: 5%;
 }
 
-.news_menu {
+.news_menu,
+.others_menu {
     padding: 10px;
     text-align: left;
     border-bottom: dashed 1px #505050;
@@ -369,7 +380,8 @@ ul li {
 }
 
 
-.news_menu a {
+.news_menu a,
+.others_menu a{
     display: inline-block;
     padding-right: 10px;
     transition: 0.35s ease;
@@ -380,18 +392,21 @@ ul li {
 }
 
 .news_menu a:hover,
-.news_menu a:focus {
+.news_menu a:focus,
+.others a:hover,
+.others a:focus{
     color: rgba(255, 208, 11, 1);
 }
 
-.news_menu p {
+.news_menu p,
+.others p{
     display: inline-block;
     padding-right: 20px;
     color: rgba(255, 208, 11, 1);
     cursor: default;
 }
 
-.news_time {
+.news_time{
     padding-left: 3%;
     cursor: default;
     color: #5d5d5d;
