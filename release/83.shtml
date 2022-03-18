@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="http://archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app214.us.archive.org';v.server_ms=304;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="../../../../../_static/js/bundle-playback.js?v=poeZ53Bz" charset="utf-8"></script>
+<script type="text/javascript" src="../../../../../_static/js/wombat.js?v=UHAOicsW" charset="utf-8"></script>
+<script type="text/javascript">
+  __wm.init("http://web.archive.org/web");
+  __wm.wombat("http://quad-stardust.com:80/release/83.shtml","20180409001328","http://web.archive.org/","web","/_static/",
+	      "1523232808");
+</script>
+<link rel="stylesheet" type="text/css" href="../../../../../_static/css/banner-styles.css?v=fantwOh2" />
+<link rel="stylesheet" type="text/css" href="../../../../../_static/css/iconochive.css?v=qtvMKcIJ" />
+<!-- End Wayback Rewrite JS Include -->
+
+    <meta charset="UTF-8">
+    <title>小野道×TOMATO合作个人专辑/画集『蝴蝶旅客 feat. 星尘』</title>
+    <!--兼容性-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link type="text/css" rel="stylesheet" href="http://web.archive.org/web/20180409001328cs_/http://quad-stardust.com/statics/starindex/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="http://web.archive.org/web/20180409001328cs_/http://quad-stardust.com/statics/starindex/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="http://web.archive.org/web/20180409001328cs_/http://quad-stardust.com/statics/starindex/css/index_style.css">
+    <link type="text/css" rel="stylesheet" href="http://web.archive.org/web/20180409001328cs_/http://quad-stardust.com/statics/starindex/css/animate.css">
+    <link type="text/css" rel="stylesheet" href="http://web.archive.org/web/20180409001328cs_/http://quad-stardust.com/statics/starindex/css/news_style.css">
+</head>
+<style>
+    #content-box{
+        text-align: initial;
+    }
+    .message-content{
+        color: #fff !important;
+    }
+
+.imgres{
+	max-width: 100%;
+	height: auto;
+}
+#menu{
+	height: 65px;
+}
+@media only screen and (max-width: 972px) {
+	/*body{
+	    margin: 0 auto;
+	    background: url(http://web.archive.org/web/20180409001328im_/http://quad-stardust.com/d/file/content/2016/08/banner.jpg) no-repeat left 2.5%;
+	    background-size: contain;
+	    background-color: rgb(28, 28, 28);		
+	}*/
+	.bannermg{
+		margin-top: 65px;
+	}
+}
+@media only screen and (min-width: 972px) {
+	/*body{
+	    margin: 0 auto;
+	    background: url(http://web.archive.org/web/20180409001328im_/http://quad-stardust.com/d/file/content/2016/08/banner.jpg) no-repeat left 9%;
+	    background-size: contain;
+	    background-color: rgb(28, 28, 28);		
+	}	*/
+	.bannermg{
+		margin-top: 65px;
+	}	
+}  
+</style>
+<body>
+<!--导航栏-->
+<div class="row">
+    <nav id="menu" class="navbar navbar-default">
+        <div class="navbar-header">
+            <!--星尘LOGO-->
+            <div class="logo">
+                <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/" title="回到主页"><img src="http://web.archive.org/web/20180409001328im_/http://quad-stardust.com/statics/starindex/pictures/logo.png" class="img-responsive" alt="Responsive image"/>
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav col-md-12 menu">
+                <li><a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/" style="color:#fff;">首页</a>
+                    <p>Index</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/news.shtml">动态</a>
+                    <p>News</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/release.shtml">发售</a>
+                    <p>Release</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/video.shtml">音乐PV</a>
+                    <p>Video</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/Illustration.shtml">插画</a>
+                    <p>Illustration</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/about.html">关于星尘</a>
+                    <p>About</p>
+                    <span class="line line-bottom"></span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<!--导航条结束-->
+<div id="mainbody">
+    <div class="row bannermg">
+	        <!--<p class="vid_title">音乐PV<span class="vid_en">Video</span>
+	        </p>-->
+		<img src="http://web.archive.org/web/20180409001328im_/http://quad-stardust.com/d/file/content/2016/08/banner.jpg" class="imgres"/>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="news_menu" class="col-md-6">
+            <ol class="breadcrumb">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <li><a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/" style="color:#ccc;" title="返回首页">首页</a>
+                </li>
+                <li class="active"> <a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/release.shtml">发售</a></a>
+                </li>
+            </ol>
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div id="newsSec" class="col-md-8">
+
+
+            <div class="col-md-12 news_box" id="content-box">
+                <a href="83.shtml" target="_blank" title="点击进入详情">小野道×TOMATO合作个人专辑/画集『蝴蝶旅客 feat. 星尘』</a>
+                <a class="news_time">发布时间：2017-04-22 00:00:00</a>
+                <p class="newsSec_pre">
+                    <p style="white-space: normal;"><img src="http://web.archive.org/web/20180409001328im_/http://quad-stardust.com/d/file/content/2017/07/5964ffae18bbe.jpg" alt="蝴蝶旅客封面700.jpg" width="319" height="319" border="0" vspace="0" title="蝴蝶旅客封面700.jpg" style="width: 319px; height: 319px; float: left;"/></p><p style="white-space: normal;"><strong style="font-size: 20px; text-align: justify;"><span style="font-size: 18px;"><strong style="font-family: 宋体, SimSun; font-size: 14px;">&nbsp; &nbsp; &nbsp;</strong><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">『蝴蝶旅客 feat. 星尘』</span></span></strong></p><p style="white-space: normal; text-align: justify; line-height: normal;"><span style="font-size: 14px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2017/4/22 ON SALE</strong></span></p><p style="white-space: normal; text-align: justify;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong style="font-family: 宋体, SimSun; font-size: 14px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></span></p><p style="white-space: normal; text-align: justify;"><span style="font-size: 14px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong style="font-family: 宋体, SimSun;"><strong>&nbsp; &nbsp; &nbsp;</strong></strong></span><span style="font-size: 12px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">高水准电子音乐制作人小野道与人气画师TOMATO的合作作品集</span></p><p style="white-space: normal; text-align: justify;"><span style="font-size: 12px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong style="font-family: 宋体, SimSun; font-size: 14px;"><strong>&nbsp; &nbsp; &nbsp;</strong></strong>小野道清新的电子音乐与可爱的赛璐璐画风会碰撞出怎样的火花呢？</span></p><p style="white-space: normal; text-align: justify;"><span style="font-size: 12px;"><strong style="font-size: 14px;"><strong><span style="font-family: 宋体, SimSun;">&nbsp; &nbsp; &nbsp;</span></strong></strong></span></p><p style="white-space: normal; text-align: justify;"><span style="font-size: 20px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong style="font-family: 宋体, SimSun; font-size: 14px;"><strong>&nbsp; &nbsp; &nbsp;</strong></strong></span></p><p style="white-space: normal; text-align: justify;"><span style="font-size: 20px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><strong style="font-family: 宋体, SimSun; font-size: 14px;"></strong></span></p><p style="white-space: normal;"><br/></p><p style="white-space: normal; text-align: center;"><a href="http://web.archive.org/web/20180409001328/http://www.bilibili.com/video/av10013059/" target="_blank" textvalue="专辑试听" style="font-size: 14px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; text-decoration: underline;">专辑试听</a><span style="font-size: 14px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">&nbsp; &nbsp;</span><a href="http://web.archive.org/web/20180409001328/https://item.taobao.com/item.htm?spm=686.1000925.0.0.3f11c9edK1tBl5&amp;id=548604696436" target="_blank" textvalue="更多详情&amp;购买" style="text-decoration: underline;"><span style="font-size: 14px; font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">更多详情&amp;购买</span></a></p><p style="white-space: normal;"><br/></p><p style="white-space: normal;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 12px;"><br/></span></p><p style="white-space: normal;"><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 12px;">01.一日都市（</span><span style="font-size: 12px; font-family: &quot;times new roman&quot;;">作词:冥凰·作曲:小野道</span><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 12px;">）<br/></span><span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;; font-size: 12px;">02. 超远距连接</span><span style="font-size: 12px; font-family: &quot;times new roman&quot;;">（作词:泠鸢yousa·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">03.&nbsp;蝴蝶旅客&nbsp;（作词:赭莓奶·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">04.&nbsp;自由论（作词:和田野·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">05.&nbsp;chu~chu~chu~（作词:冥凰·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">06.&nbsp;妈妈说（作词:冥凰·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">07.&nbsp;Twinkle Star（作词·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">08.&nbsp;魔女日志（作词:赭莓奶·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">09.&nbsp;</span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">苍白梦书</span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">（作词:赭莓奶·作曲:小野道）<br/></span><span style="font-family: &quot;times new roman&quot;; font-size: 12px;">10.&nbsp;你好哈雷（作词:冥凰·作曲:小野道）</span></p><p style="white-space: normal;"><span style="font-family: &quot;times new roman&quot;; font-size: 12px;"><br/></span></p><p><br/></p>                </p>
+            </div>
+        <!-- JiaThis Button BEGIN -->
+        <div style="padding: 10px;float: left">
+            <div class="jiathis_style">
+                <span class="jiathis_txt">分享到：</span>
+                <a class="jiathis_button_tsina">新浪微博</a>
+                <a class="jiathis_button_cqq">QQ好友</a>
+                <a class="jiathis_button_weixin">微信</a>
+                <a class="jiathis_button_twitter">Twitter</a>
+                <a class="jiathis_button_fb">Facebook</a>
+                <a href="http://web.archive.org/web/20180409001328/http://www.jiathis.com/share?uid=2051759" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+                <a class="jiathis_counter_style"></a>
+            </div>
+            <script type="text/javascript">
+                var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://web.archive.org/web/20180409001328js_/http://v3.jiathis.com/code_mini/jia.js?uid=2051759" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+        </div>
+
+
+        <!-- UY BEGIN -->
+        <!--<div id="uyan_frame"></div>
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2051759"></script>-->
+        <!-- UY END -->
+    </div>
+</div>
+
+<!--底部版权-->
+<div id="footer" class="row">
+    <p><a href="http://web.archive.org/web/20180409001328/http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备16004768号-1</a></p>
+    <p>©<a>北京福托科技开发有限责任公司</a></p>
+        <p>
+    		<a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/about.html">关于星尘</a>－<a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/contact.html">联系我们</a>－<a href="http://web.archive.org/web/20180409001328/http://quad-stardust.com/join.html">加入我们</a>
+	</p>
+</div>
+</body>
+<script type="text/javascript" src="http://web.archive.org/web/20180409001328js_/http://quad-stardust.com/statics/starindex/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://web.archive.org/web/20180409001328js_/http://quad-stardust.com/statics/starindex/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://web.archive.org/web/20180409001328js_/http://quad-stardust.com/statics/starindex/js/wow.js"></script>
+<script type="text/javascript">
+    new WOW().init();
+</script>
+<script language="JavaScript">
+    $(function(){
+        function nicepic(){
+            if (($(window).width()) < 720) {
+                $(".newsSec_title").css("margin-top","15%");
+            } else {
+                $(".newsSec_title").css("margin-top","8%");
+            }
+        }
+
+        $(window).resize(function() {
+            nicepic()
+        });
+        nicepic()
+    })
+</script>
+</html><!--
+     FILE ARCHIVED ON 00:13:28 Apr 09, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 02:02:43 Mar 18, 2022.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 165.446
+  exclusion.robots: 0.13
+  exclusion.robots.policy: 0.123
+  RedisCDXSource: 8.059
+  esindex: 0.009
+  LoadShardBlock: 138.601 (3)
+  PetaboxLoader3.datanode: 220.162 (4)
+  CDXLines.iter: 16.476 (3)
+  load_resource: 132.876
+  PetaboxLoader3.resolve: 43.327
+-->
