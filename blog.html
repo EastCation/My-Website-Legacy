@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>暮光工作室——TLSD</title>
+
+<!--兼容性-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link type="text/css" rel="stylesheet" href="https://eastcation.github.io/statics/starindex/css/bootstrap.css">
+		<link type="text/css" rel="stylesheet" href="https://eastcation.github.io/statics/starindex/css/reset.css">
+		<link type="text/css" rel="stylesheet" href="https://eastcation.github.io/statics/starindex/css/index_style.css">
+		<link type="text/css" rel="stylesheet" href="https://eastcation.github.io/statics/starindex/css/animate.css">
+		<link type="text/css" rel="stylesheet" href="https://eastcation.github.io/statics/starindex/css/news_style.css">
+		<script type="text/javascript" src="https://eastcation.github.io/statics/starindex/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://eastcation.github.io/statics/starindex/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://eastcation.github.io/statics/starindex/js/wow.js"></script>
+		<script src="https://eastcation.github.io/statics/starindex/src/js/uikit.min.js"></script>
+		<script src="https://eastcation.github.io/statics/starindex/src/js/components/sticky.js"></script>
+		<script type="text/javascript">
+		
+			
+        new WOW().init();
+        $(function(){
+            $(".item:eq(0)").addClass("active")
+
+            var itemlength=$(".item").length;
+            console.log(itemlength);
+
+            for(i=0;i<itemlength;i++){
+                ceshi= '<li data-target="#carousel-example-generic" data-slide-to="'+i+'" ></li>'
+//               alert(ceshi)
+                $(".carousel-indicators").append(ceshi);
+            }
+        })
+
+    </script>
+    <style>
+        .release_box .img-responsive{
+            height: 240px !important;
+            margin: 0 auto;
+        }
+    </style>
+<div class="row">
+    <nav id="menu" class="navbar navbar-default">
+        <div class="navbar-header">
+            <!--我们不能不要这段-->
+           <div class="logo">
+                <a href="index.html" title="回到主页"><img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/header/Minecraft_Core-Logo.png" class="img-responsive" alt="Responsive image"/>
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav col-md-12 menu">
+                <!--<li>
+                <form class="navbar-form navbar-left" role="search" style="padding: 10px 15px">
+
+                        <div class="form-group" style="width: ">
+                            <input type="text" class="form-control input-sm" placeholder="搜索" id="bdcsMain">
+                        </div>
+                        <button type="submit" class="btn  glyphicon glyphicon-search" style="padding: 4px !important;"></button>
+                    </form>
+                </li>-->
+                <li><a href="index.html">首页</a>
+                    <p>Index</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="blog.html" style="color:#fff;">博客</a>
+                    <p>Blog</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="release.shtml">材质</a>
+                    <p>Textures</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="video.shtml">服务器</a>
+                    <p>Servers</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="Illustration.shtml">镜像</a>
+                    <p>Mirrors</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="about.html">关于暮光工作室</a>
+                    <p>About</p>
+                    <span class="line line-bottom"></span>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+<div id="news_menu" class="col-md-6">
+  <ol class="breadcrumb" id="about">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						<li>
+							<a href="https://eastcation.github.io" style="color:#ccc;" title="返回首页">首页</a>
+						</li>
+						<li class="active">
+							<a href="about.html#" title="当前位置" style="color:#fff;">博客</a>
+						</li>
+					</ol>
+
+</div>
+ <div data-wow-duration="1600" class="news_box wow fadeIn">
+                         <div class="col-md-6 news_box">
+            	
+                <div data-wow-delay="0.1s" data-wow-duration="600" class="news_menu wow fadeIn">
+                            <span class="glyphicon glyphicon-star"></span>
+                           <a href="https://www.minecraft.net/zh-hans/article/minecraft-beta---preview---1-18-30-22-23" target="_blank" title="MINECRAFT BETA & PREVIEW - 1.18.30.22/23">MINECRAFT BETA & PREVIEW - 1.18.30.22/23</a><span class="news_time" style="float: right">2022-03-15</span>
+                        </div><div data-wow-delay="0.1s" data-wow-duration="600" class="news_menu wow fadeIn">
+                            <span class="glyphicon glyphicon-star"></span>
+                           <a href="https://eastcation.github.io/Twilight-VI/blogs/202110021.html" target="_blank" title="阳光社团——为什么要努力">阳光社团——为什么要努力</a><span class="news_time" style="float: right">2021-10-21</span>
+                        </div><div data-wow-delay="0.1s" data-wow-duration="600" class="news_menu wow fadeIn">
+                            <span class="glyphicon glyphicon-star"></span>
+                           <a href="00.shtml" target="_blank" title="极简！VcXsrv+WSL1使用xfce图形界面">极简！VcXsrv+WSL1使用xfce图形界面</a><span class="news_time" style="float: right">1970-01-01</span>
+                        </div><div data-wow-delay="0.1s" data-wow-duration="600" class="news_menu wow fadeIn">
+                            <span class="glyphicon glyphicon-star"></span>
+                           <a href="00.shtml" target="_blank" title="没有了">没有了</a><span class="news_time" style="float: right">9999-13-32</span>
+                        </div>
+	 </div>
+	</div>
+	        
+	</head>
+</html>
