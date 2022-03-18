@@ -263,8 +263,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.eot');
-  src: url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.eot') format('embedded-opentype'), url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.woff') format('woff'), url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('http://web.archive.org/web/20180519180105im_/http://quad-stardust.com/statics/starindex/fonts/glyphicons-halflings-regular.svg') format('svg');
+    src: url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.eot');
+  src: url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.eot') format('embedded-opentype'), url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://eastcation.github.io//statics/starindex/fonts/glyphicons-halflings-regular.svg') format('svg');
 }
 .glyphicon {
   position: relative;
