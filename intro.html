@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>暮光工作室——TLSD</title>
+
+<!--兼容性-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link type="text/css" rel="stylesheet" href="/statics/starindex/css/bootstrap.css">
+		<link type="text/css" rel="stylesheet" href="/statics/starindex/css/reset.css">
+		<link type="text/css" rel="stylesheet" href="/statics/starindex/css/index_style.css">
+		<link type="text/css" rel="stylesheet" href="/statics/starindex/css/animate.css">
+		<link type="text/css" rel="stylesheet" href="/statics/starindex/css/news_style.css">
+		<script type="text/javascript" src="/statics/starindex/js/jquery.min.js"></script>
+		<script type="text/javascript" src="/statics/starindex/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/statics/starindex/js/wow.js"></script>
+		<script src="/statics/starindex/src/js/uikit.min.js"></script>
+		<script src="/statics/starindex/src/js/components/sticky.js"></script>
+		<script type="text/javascript">
+		
+			
+        new WOW().init();
+        $(function(){
+            $(".item:eq(0)").addClass("active")
+
+            var itemlength=$(".item").length;
+            console.log(itemlength);
+
+            for(i=0;i<itemlength;i++){
+                ceshi= '<li data-target="#carousel-example-generic" data-slide-to="'+i+'" ></li>'
+//               alert(ceshi)
+                $(".carousel-indicators").append(ceshi);
+            }
+        })
+
+    </script>
+    <style>
+        .release_box .img-responsive{
+            height: 240px !important;
+            margin: 0 auto;
+        }
+    </style>
+<div class="row">
+    <nav id="menu" class="navbar navbar-default">
+        <div class="navbar-header">
+            <!--我们不能不要这段-->
+           <div class="logo">
+                <a href="index.html" title="回到主页"><img src="https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/img/header/Minecraft_Core-Logo.png" class="img-responsive" alt="Responsive image"/>
+                </a>
+            </div>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav col-md-12 menu">
+                <!--<li>
+                <form class="navbar-form navbar-left" role="search" style="padding: 10px 15px">
+
+                        <div class="form-group" style="width: ">
+                            <input type="text" class="form-control input-sm" placeholder="搜索" id="bdcsMain">
+                        </div>
+                        <button type="submit" class="btn  glyphicon glyphicon-search" style="padding: 4px !important;"></button>
+                    </form>
+                </li>-->
+                <li><a href="index.html" style="color:#fff;">首页</a>
+                    <p>Index</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="blog.html">博客</a>
+                    <p>Blog</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="https://starmoewiki.svc.vin/">百科</a>
+                    <p>Wiki</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="intro.html">个人介绍</a>
+                    <p>Intro</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="mirrors.html">镜像</a>
+                    <p>Mirrors</p>
+                    <span class="line line-bottom"></span>
+                </li>
+                <li>
+                    <a href="about.html">关于暮光工作室</a>
+                    <p>About</p>
+                    <span class="line line-bottom"></span>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div id="news_menu" class="col-md-6">
+  <ol class="breadcrumb" id="about">
+						<span class="glyphicon glyphicon-map-marker"></span>
+						<li>
+							<a href="https://eastcation.github.io" style="color:#ccc;" title="返回首页">首页</a>
+						</li>
+						<li class="active">
+							<a href="about.html#" title="当前位置" style="color:#fff;">个人介绍</a>
+						</li>
+					</ol>
+
+</div>
+
+<h>关于辉夜星瞳</h>
+<p>喜欢玩原神,Minecraft,公主连结等等的玩家</p>
+<p>会反编译，敲代码，虚拟歌姬，AI，VM等等的全能傻星瞳</p>
+<img src="https://genshin-card.himiku.com/rand/83038357.png" alt="genshin-card" />
+
+<!--开源许可-->
+<div id="footer" class="row">
+    <p>
+    	<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />本作品采用<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可
+	</p>
+</div>
+</head>
+
+	</html>
