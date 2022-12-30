@@ -64,8 +64,8 @@ h1 {
   font-size: 2em;
 }
 mark {
-  color: #000;
-  background: #ff0;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 238, 255);
 }
 small {
   font-size: 80%;
@@ -192,7 +192,7 @@ th {
   *,
   *:before,
   *:after {
-    color: #000 !important;
+    color: rgb(0, 0, 0) !important;
     text-shadow: none !important;
     background: transparent !important;
     -webkit-box-shadow: none !important;
@@ -214,7 +214,7 @@ th {
   }
   pre,
   blockquote {
-    border: 1px solid #999;
+    border: 1px solid rgb(0, 0, 0);
 
     page-break-inside: avoid;
   }
@@ -243,10 +243,10 @@ th {
   }
   .btn > .caret,
   .dropup > .btn > .caret {
-    border-top-color: #000 !important;
+    border-top-color: rgb(255, 255, 255) !important;
   }
   .label {
-    border: 1px solid #000;
+    border: 1px solid rgb(255, 255, 255);
   }
   .table {
     border-collapse: collapse !important;

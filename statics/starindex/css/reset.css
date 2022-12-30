@@ -57,7 +57,7 @@ input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit
 */
  #footer a:hover,
  #footer a:focus {
-    color: rgba(255, 208, 11, 1);
+    color: rgb(11, 255, 243);
 }
 .all{color: #666;}
 .paging{margin-bottom: 15px}

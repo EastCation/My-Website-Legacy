@@ -3,7 +3,7 @@ body {
     font-size: 14px;
     color: aliceblue;
     text-align: center;
-    background-color: rgba(34, 34, 34, 1);
+    background-color: rgb(255, 255, 255);
 }
 
 .x_line {
@@ -34,7 +34,7 @@ body {
 
 .breadcrumb > li + li:before {
     padding: 0 5px;
-    color: #ffc400;
+    color: #00e1ff;
     content: "/\00a0";
 }
 
@@ -85,17 +85,17 @@ ul li {
 }
 
 .navbar-default {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     border-color: transparent;
     -o-border-color: transparent;
     -moz-border-color: transparent;
     -ms-border-color: transparent;
     -webkit-border-color: transparent;
-    border-bottom: 1px solid #000;
-    -o-border-bottom: 1px solid #000;
-    -moz-border-bottom: 1px solid #000;
-    -ms-border-bottom: 1px solid #000;
-    -webkit-border-bottom: 1px solid #000;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    -o-border-bottom: 1px solid rgb(255, 255, 255);
+    -moz-border-bottom: 1px solid rgb(255, 255, 255);
+    -ms-border-bottom: 1px solid rgb(255, 255, 255);
+    -webkit-border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -123,11 +123,11 @@ ul li {
 .navbar-default .navbar-nav > li > a:after {
     content: "";
     position: absolute;
-    border-bottom: 2px solid rgba(255, 208, 11, 1);
-    -moz-border-bottom: 2px solid rgba(255, 208, 11, 1);
-    -ms-border-bottom: 2px solid rgba(255, 208, 11, 1);
-    -o-border-bottom: 2px solid rgba(255, 208, 11, 1);
-    -webkit-border-bottom: 2px solid rgba(255, 208, 11, 1);
+    border-bottom: 2px solid rgb(11, 255, 243);
+    -moz-border-bottom: 2px solid rgb(11, 255, 255);
+    -ms-border-bottom: 2px solid rgb(11, 255, 235);
+    -o-border-bottom: 2px solid rgb(11, 255, 255);
+    -webkit-border-bottom: 2px solid rgb(11, 247, 255);
     bottom: -15px;
     left: 100%;
     width: 0;
@@ -177,7 +177,7 @@ ul li {
 .others_textTitle a:hover,
 .others_title a:hover,
 .special_textTitle a:hover {
-    color: #ffc400;
+    color: #00eeff;
     background-color: transparent;
 }
 
@@ -346,11 +346,11 @@ ul li {
 .others_menu {
     padding: 10px;
     text-align: left;
-    border-bottom: dashed 1px #505050;
-    -o-border-bottom: dashed 1px #505050;
-    -moz-border-bottom: dashed 1px #505050;
-    -ms-border-bottom: dashed 1px #505050;
-    -webkit-border-bottom: dashed 1px #505050;
+    border-bottom: dashed 1px #000000;
+    -o-border-bottom: dashed 1px #000000;
+    -moz-border-bottom: dashed 1px #000000;
+    -ms-border-bottom: dashed 1px #000000;
+    -webkit-border-bottom: dashed 1px #000000;
 }
 
 .tv_icon img {
@@ -423,7 +423,7 @@ ul li {
 
 #footer {
     margin-top: 40px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     text-align: center;
     color: #bcbcbc;
     padding: 30px;
@@ -458,24 +458,3 @@ ul li {
         margin-top: 50px;
     }
 }
-/*
-     FILE ARCHIVED ON 02:59:57 May 20, 2018 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 02:01:30 Mar 18, 2022.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  captures_list: 72.949
-  exclusion.robots: 0.084
-  exclusion.robots.policy: 0.076
-  RedisCDXSource: 0.752
-  esindex: 0.006
-  LoadShardBlock: 52.074 (3)
-  PetaboxLoader3.datanode: 78.45 (5)
-  CDXLines.iter: 17.466 (3)
-  load_resource: 191.212 (2)
-  PetaboxLoader3.resolve: 123.154 (2)
-*/
